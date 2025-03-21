@@ -28,7 +28,7 @@ Rispondi SOLO con JSON valido.
       Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
     },
     body: JSON.stringify({
-      model: "gpt-4",
+      model: "gpt-3.5-turbo",
       temperature: 0.8,
       messages: [
         { role: "system", content: "Sei un motore narrativo immersivo e psicologico." },
