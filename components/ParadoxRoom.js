@@ -96,7 +96,7 @@ export default function ParadoxRoom() {
   };
 
   const getDescription = () => {
-    let desc = current.description;
+    let desc = current?.description || '';
     if (desc.includes('{clicks}')) desc = desc.replace('{clicks}', clicks);
     if (desc.includes('{wait}')) {
       const seconds = ((Date.now() - startTime) / 1000).toFixed(1);
