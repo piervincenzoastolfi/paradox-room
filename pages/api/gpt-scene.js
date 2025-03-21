@@ -1,4 +1,3 @@
-
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end('Method Not Allowed');
 
@@ -15,7 +14,7 @@ Genera una nuova scena JSON con:
 - choices (2-3 oggetti con text e opzionalmente link)
 
 Profilo del giocatore: ${profile}
-Memoria: ${memory.slice(-5).join(' / ')}
+Memoria: ${memory?.slice(-5).join(' / ')}
 Click: ${clicks}, Attesa: ${wait}s
 
 Rispondi SOLO con JSON valido.
@@ -43,7 +42,7 @@ Rispondi SOLO con JSON valido.
     res.status(200).json(json);
 
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Errore GPT' });
+    console.error("Errore GPT:", err);
+    res.status(500).json({ error: 'Errore nella generazione della scena' });
   }
 }
