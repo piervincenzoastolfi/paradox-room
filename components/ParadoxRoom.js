@@ -127,15 +127,16 @@ export default function ParadoxRoom() {
         {current.loopTexts ? current.loopTexts[loopIndex] : getDescription()}
       </p>
       <div className="flex flex-col gap-4">
-        {current.choices.map((choice, index) => (
-          <button
-            key={index}
-            onClick={() => handleChoice(choice)}
-            className="bg-white text-black px-6 py-2 rounded-xl hover:scale-105 transition transform shadow-md"
-          >
-            {choice.text}
-          </button>
-        ))}
+        {Array.isArray(current.choices) &&
+  current.choices.map((choice, index) => (
+    <button
+      key={index}
+      onClick={() => handleChoice(choice)}
+      className="bg-white text-black px-6 py-2 rounded-xl hover:scale-105 transition transform shadow-md"
+    >
+      {choice.text}
+    </button>
+))}
       </div>
     </div>
   );
